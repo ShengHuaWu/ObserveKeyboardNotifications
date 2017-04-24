@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         super.viewWillLayoutSubviews()
         
         scrollView.frame = view.bounds
+        scrollView.contentSize = view.bounds.size
         
         textField.frame = CGRect(x: 20.0, y: scrollView.frame.height * 2.0 / 3.0, width: scrollView.frame.width - 40.0, height: 32.0)
     }
@@ -57,11 +58,23 @@ class ViewController: UIViewController {
     
     // MARK: - Keyboard Notification Selectors
     func keyboardWillBeShown(note: Notification) {
-        debugPrint("keyboard will show")
+        let userInfo = note.userInfo
+        let keyboardFrame = userInfo?[UIKeyboardFrameEndUserInfoKey] as! CGRect
+        let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.height, 0.0)
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+        
+        var visibleFrame = scrollView.frame
+        visibleFrame = CGRect(x: visibleFrame.minX, y: visibleFrame.minY, width: visibleFrame.width, height: visibleFrame.height - keyboardFrame.height)
+        guard !visibleFrame.contains(textField.frame.origin) else { return }
+        
+        scrollView.scrollRectToVisible(textField.frame, animated: true)
     }
     
     func keyboardWillBeHidden(note: Notification) {
-        debugPrint("keyboard will hide")
+        let contentInset = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
     }
 }
 
