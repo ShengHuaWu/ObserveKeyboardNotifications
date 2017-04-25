@@ -16,16 +16,6 @@
 		9B6107AB1EAEE11900292D69 /* KeyboardPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6107AA1EAEE11900292D69 /* KeyboardPayload.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		9B2D145D1EAD953D00D18AEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9B2D14401EAD953D00D18AEC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9B2D14471EAD953D00D18AEC;
-			remoteInfo = ObserveKeyboardNotifications;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		9B2D14481EAD953D00D18AEC /* ObserveKeyboardNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObserveKeyboardNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2D144B1EAD953D00D18AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,21 +24,12 @@
 		9B2D14521EAD953D00D18AEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B2D14551EAD953D00D18AEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B2D14571EAD953D00D18AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B2D145C1EAD953D00D18AEC /* ObserveKeyboardNotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObserveKeyboardNotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B2D14621EAD953D00D18AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B6107A81EAEDAB000292D69 /* NotificationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDescriptor.swift; sourceTree = "<group>"; };
 		9B6107AA1EAEE11900292D69 /* KeyboardPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPayload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9B2D14451EAD953D00D18AEC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9B2D14591EAD953D00D18AEC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -62,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				9B2D144A1EAD953D00D18AEC /* ObserveKeyboardNotifications */,
-				9B2D145F1EAD953D00D18AEC /* ObserveKeyboardNotificationsTests */,
 				9B2D14491EAD953D00D18AEC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				9B2D14481EAD953D00D18AEC /* ObserveKeyboardNotifications.app */,
-				9B2D145C1EAD953D00D18AEC /* ObserveKeyboardNotificationsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,14 +68,6 @@
 				9B2D14571EAD953D00D18AEC /* Info.plist */,
 			);
 			path = ObserveKeyboardNotifications;
-			sourceTree = "<group>";
-		};
-		9B2D145F1EAD953D00D18AEC /* ObserveKeyboardNotificationsTests */ = {
-			isa = PBXGroup;
-			children = (
-				9B2D14621EAD953D00D18AEC /* Info.plist */,
-			);
-			path = ObserveKeyboardNotificationsTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,24 +90,6 @@
 			productReference = 9B2D14481EAD953D00D18AEC /* ObserveKeyboardNotifications.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9B2D145B1EAD953D00D18AEC /* ObserveKeyboardNotificationsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9B2D14681EAD953D00D18AEC /* Build configuration list for PBXNativeTarget "ObserveKeyboardNotificationsTests" */;
-			buildPhases = (
-				9B2D14581EAD953D00D18AEC /* Sources */,
-				9B2D14591EAD953D00D18AEC /* Frameworks */,
-				9B2D145A1EAD953D00D18AEC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9B2D145E1EAD953D00D18AEC /* PBXTargetDependency */,
-			);
-			name = ObserveKeyboardNotificationsTests;
-			productName = ObserveKeyboardNotificationsTests;
-			productReference = 9B2D145C1EAD953D00D18AEC /* ObserveKeyboardNotificationsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -150,11 +103,6 @@
 					9B2D14471EAD953D00D18AEC = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
-					};
-					9B2D145B1EAD953D00D18AEC = {
-						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 9B2D14471EAD953D00D18AEC;
 					};
 				};
 			};
@@ -172,7 +120,6 @@
 			projectRoot = "";
 			targets = (
 				9B2D14471EAD953D00D18AEC /* ObserveKeyboardNotifications */,
-				9B2D145B1EAD953D00D18AEC /* ObserveKeyboardNotificationsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -185,13 +132,6 @@
 				9B2D14561EAD953D00D18AEC /* LaunchScreen.storyboard in Resources */,
 				9B2D14531EAD953D00D18AEC /* Assets.xcassets in Resources */,
 				9B2D14511EAD953D00D18AEC /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9B2D145A1EAD953D00D18AEC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,22 +149,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B2D14581EAD953D00D18AEC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9B2D145E1EAD953D00D18AEC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9B2D14471EAD953D00D18AEC /* ObserveKeyboardNotifications */;
-			targetProxy = 9B2D145D1EAD953D00D18AEC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9B2D144F1EAD953D00D18AEC /* Main.storyboard */ = {
@@ -363,34 +288,6 @@
 			};
 			name = Release;
 		};
-		9B2D14691EAD953D00D18AEC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ObserveKeyboardNotificationsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shenghuawu.ObserveKeyboardNotificationsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ObserveKeyboardNotifications.app/ObserveKeyboardNotifications";
-			};
-			name = Debug;
-		};
-		9B2D146A1EAD953D00D18AEC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ObserveKeyboardNotificationsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shenghuawu.ObserveKeyboardNotificationsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ObserveKeyboardNotifications.app/ObserveKeyboardNotifications";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -408,15 +305,6 @@
 			buildConfigurations = (
 				9B2D14661EAD953D00D18AEC /* Debug */,
 				9B2D14671EAD953D00D18AEC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9B2D14681EAD953D00D18AEC /* Build configuration list for PBXNativeTarget "ObserveKeyboardNotificationsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9B2D14691EAD953D00D18AEC /* Debug */,
-				9B2D146A1EAD953D00D18AEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
