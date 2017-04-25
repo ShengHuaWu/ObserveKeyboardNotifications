@@ -64,8 +64,7 @@ class ViewController: UIViewController {
     func registerKeyboardNotifications() {
         let center = NotificationCenter.default
         
-        let keyboardWillShowDescriptor = NotificationDescriptor(name: Notification.Name.UIKeyboardWillShow, convert: KeyboardPayload.init)
-        center.addObserver(with: keyboardWillShowDescriptor) { (payload) in
+        center.addObserver(with: UIViewController.keyboardWillShow) { (payload) in
             let contentInset = UIEdgeInsetsMake(0.0, 0.0, payload.endFrame.height, 0.0)
             self.scrollView.contentInset = contentInset
             self.scrollView.scrollIndicatorInsets = contentInset
@@ -77,8 +76,7 @@ class ViewController: UIViewController {
             self.scrollView.scrollRectToVisible(self.textField.frame, animated: true)
         }
         
-        let keyboardWillHideDescriptor = NotificationDescriptor(name: Notification.Name.UIKeyboardWillHide, convert: KeyboardPayload.init)
-        center.addObserver(with: keyboardWillHideDescriptor) { _ in
+        center.addObserver(with: UIViewController.keyboardWillHide) { _ in
             let contentInset = UIEdgeInsets.zero
             self.scrollView.contentInset = contentInset
             self.scrollView.scrollIndicatorInsets = contentInset

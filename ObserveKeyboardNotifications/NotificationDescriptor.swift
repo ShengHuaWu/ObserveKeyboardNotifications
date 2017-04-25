@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct NotificationDescriptor<Payload> {
     let name: Notification.Name
@@ -19,4 +20,9 @@ extension NotificationCenter {
             block(descriptor.convert(note))
         }
     }
+}
+
+extension UIViewController {
+    static let keyboardWillShow = NotificationDescriptor(name: Notification.Name.UIKeyboardWillShow, convert: KeyboardPayload.init)
+    static let keyboardWillHide = NotificationDescriptor(name: Notification.Name.UIKeyboardWillHide, convert: KeyboardPayload.init)
 }
