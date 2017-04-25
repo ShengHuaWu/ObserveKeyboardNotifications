@@ -35,9 +35,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(keyboardWillBeShown(note:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
-        center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        registerKeyboardNotifications()
     }
     
     override func viewWillLayoutSubviews() {
@@ -49,6 +47,12 @@ class ViewController: UIViewController {
         textField.frame = CGRect(x: 20.0, y: scrollView.frame.height * 2.0 / 3.0, width: scrollView.frame.width - 40.0, height: 32.0)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        unregisterKeyboardNotifications()
+    }
+    
     // MARK: - Gesture Actions
     func dismissKeyboard(sender: UITapGestureRecognizer) {
         guard textField.isFirstResponder else { return }
@@ -56,25 +60,35 @@ class ViewController: UIViewController {
         textField.resignFirstResponder()
     }
     
-    // MARK: - Keyboard Notification Selectors
-    func keyboardWillBeShown(note: Notification) {
-        let userInfo = note.userInfo
-        let keyboardFrame = userInfo?[UIKeyboardFrameEndUserInfoKey] as! CGRect
-        let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.height, 0.0)
-        scrollView.contentInset = contentInset
-        scrollView.scrollIndicatorInsets = contentInset
+    // MARK: - Keyboard Observations
+    func registerKeyboardNotifications() {
+        let center = NotificationCenter.default
         
-        var visibleFrame = scrollView.frame
-        visibleFrame = CGRect(x: visibleFrame.minX, y: visibleFrame.minY, width: visibleFrame.width, height: visibleFrame.height - keyboardFrame.height)
-        guard !visibleFrame.contains(textField.frame.origin) else { return }
+        let keyboardWillShowDescriptor = NotificationDescriptor(name: Notification.Name.UIKeyboardWillShow, convert: KeyboardPayload.init)
+        center.addObserver(with: keyboardWillShowDescriptor) { (payload) in
+            let contentInset = UIEdgeInsetsMake(0.0, 0.0, payload.endFrame.height, 0.0)
+            self.scrollView.contentInset = contentInset
+            self.scrollView.scrollIndicatorInsets = contentInset
+            
+            var visibleFrame = self.scrollView.frame
+            visibleFrame = CGRect(x: visibleFrame.minX, y: visibleFrame.minY, width: visibleFrame.width, height: visibleFrame.height - payload.endFrame.height)
+            guard !visibleFrame.contains(self.textField.frame.origin) else { return }
+            
+            self.scrollView.scrollRectToVisible(self.textField.frame, animated: true)
+        }
         
-        scrollView.scrollRectToVisible(textField.frame, animated: true)
+        let keyboardWillHideDescriptor = NotificationDescriptor(name: Notification.Name.UIKeyboardWillHide, convert: KeyboardPayload.init)
+        center.addObserver(with: keyboardWillHideDescriptor) { _ in
+            let contentInset = UIEdgeInsets.zero
+            self.scrollView.contentInset = contentInset
+            self.scrollView.scrollIndicatorInsets = contentInset
+        }
     }
     
-    func keyboardWillBeHidden(note: Notification) {
-        let contentInset = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
-        scrollView.scrollIndicatorInsets = contentInset
+    func unregisterKeyboardNotifications() {
+        let center = NotificationCenter.default
+        center.removeObserver(self, name: Notification.Name.UIKeyboardWillShow, object: nil)
+        center.removeObserver(self, name: Notification.Name.UIKeyboardWillHide, object: nil)
     }
 }
 

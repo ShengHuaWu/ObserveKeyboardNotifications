@@ -12,6 +12,8 @@
 		9B2D14511EAD953D00D18AEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2D144F1EAD953D00D18AEC /* Main.storyboard */; };
 		9B2D14531EAD953D00D18AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2D14521EAD953D00D18AEC /* Assets.xcassets */; };
 		9B2D14561EAD953D00D18AEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2D14541EAD953D00D18AEC /* LaunchScreen.storyboard */; };
+		9B6107A91EAEDAB000292D69 /* NotificationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6107A81EAEDAB000292D69 /* NotificationDescriptor.swift */; };
+		9B6107AB1EAEE11900292D69 /* KeyboardPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6107AA1EAEE11900292D69 /* KeyboardPayload.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		9B2D14571EAD953D00D18AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B2D145C1EAD953D00D18AEC /* ObserveKeyboardNotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObserveKeyboardNotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2D14621EAD953D00D18AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B6107A81EAEDAB000292D69 /* NotificationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDescriptor.swift; sourceTree = "<group>"; };
+		9B6107AA1EAEE11900292D69 /* KeyboardPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPayload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 			children = (
 				9B2D144B1EAD953D00D18AEC /* AppDelegate.swift */,
 				9B2D144D1EAD953D00D18AEC /* ViewController.swift */,
+				9B6107A81EAEDAB000292D69 /* NotificationDescriptor.swift */,
+				9B6107AA1EAEE11900292D69 /* KeyboardPayload.swift */,
 				9B2D144F1EAD953D00D18AEC /* Main.storyboard */,
 				9B2D14521EAD953D00D18AEC /* Assets.xcassets */,
 				9B2D14541EAD953D00D18AEC /* LaunchScreen.storyboard */,
@@ -197,7 +203,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B2D144E1EAD953D00D18AEC /* ViewController.swift in Sources */,
+				9B6107A91EAEDAB000292D69 /* NotificationDescriptor.swift in Sources */,
 				9B2D144C1EAD953D00D18AEC /* AppDelegate.swift in Sources */,
+				9B6107AB1EAEE11900292D69 /* KeyboardPayload.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +410,7 @@
 				9B2D14671EAD953D00D18AEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B2D14681EAD953D00D18AEC /* Build configuration list for PBXNativeTarget "ObserveKeyboardNotificationsTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +419,7 @@
 				9B2D146A1EAD953D00D18AEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
