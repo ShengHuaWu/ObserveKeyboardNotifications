@@ -14,11 +14,27 @@ struct NotificationDescriptor<Payload> {
     let convert: (Notification) -> Payload
 }
 
+final class NotificationToken {
+    private let token: NSObjectProtocol
+    private let notificationCenter: NotificationCenter
+    
+    init(token: NSObjectProtocol, notificationCenter: NotificationCenter) {
+        self.token = token
+        self.notificationCenter = notificationCenter
+    }
+    
+    deinit {
+        notificationCenter.removeObserver(token)
+    }
+}
+
 extension NotificationCenter {
-    func addObserver<Payload>(with descriptor: NotificationDescriptor<Payload>, block: @escaping (Payload) -> ()) {
-        addObserver(forName: descriptor.name, object: nil, queue: nil) { (note) in
+    func addObserver<Payload>(with descriptor: NotificationDescriptor<Payload>, block: @escaping (Payload) -> ()) -> NotificationToken {
+        let token = addObserver(forName: descriptor.name, object: nil, queue: nil) { (note) in
             block(descriptor.convert(note))
         }
+        
+        return NotificationToken(token: token, notificationCenter: self)
     }
 }
 

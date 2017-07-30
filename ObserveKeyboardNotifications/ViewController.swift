@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         return textField
     }()
     
+    private var notificationTokens: [NotificationToken] = []
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +66,7 @@ class ViewController: UIViewController {
     func registerKeyboardNotifications() {
         let center = NotificationCenter.default
         
-        center.addObserver(with: UIViewController.keyboardWillShow) { (payload) in
+        let keyboardWillShowToken = center.addObserver(with: UIViewController.keyboardWillShow) { (payload) in
             let contentInset = UIEdgeInsetsMake(0.0, 0.0, payload.endFrame.height, 0.0)
             self.scrollView.contentInset = contentInset
             self.scrollView.scrollIndicatorInsets = contentInset
@@ -75,18 +77,17 @@ class ViewController: UIViewController {
             
             self.scrollView.scrollRectToVisible(self.textField.frame, animated: true)
         }
+        notificationTokens.append(keyboardWillShowToken)
         
-        center.addObserver(with: UIViewController.keyboardWillHide) { _ in
+        let keyboardWillHideToken = center.addObserver(with: UIViewController.keyboardWillHide) { _ in
             let contentInset = UIEdgeInsets.zero
             self.scrollView.contentInset = contentInset
             self.scrollView.scrollIndicatorInsets = contentInset
         }
+        notificationTokens.append(keyboardWillHideToken)
     }
     
     func unregisterKeyboardNotifications() {
-        let center = NotificationCenter.default
-        center.removeObserver(self, name: Notification.Name.UIKeyboardWillShow, object: nil)
-        center.removeObserver(self, name: Notification.Name.UIKeyboardWillHide, object: nil)
+        notificationTokens.removeAll()
     }
 }
-
