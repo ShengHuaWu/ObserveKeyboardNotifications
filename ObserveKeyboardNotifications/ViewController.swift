@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Gesture Actions
-    func dismissKeyboard(sender: UITapGestureRecognizer) {
+    @objc func dismissKeyboard(sender: UITapGestureRecognizer) {
         guard textField.isFirstResponder else { return }
         
         textField.resignFirstResponder()
